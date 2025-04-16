@@ -10,11 +10,9 @@ class MenuViewTest(TestCase):
     def setUp(self):
         self.client = APIClient()
 
-        # Create and authenticate a test user
         self.user = User.objects.create_user(username='testuser', password='testpass')
         self.client.force_authenticate(user=self.user)
 
-        # Sample menu items
         self.item1 = Menu.objects.create(title="IceCream", price=80, inventory=100)
         self.item2 = Menu.objects.create(title="Pizza", price=120, inventory=50)
         self.item3 = Menu.objects.create(title="Burger", price=90, inventory=75)
