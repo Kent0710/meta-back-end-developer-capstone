@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework import generics, viewsets
 from .models import Menu, Booking
 from .serializers import MenuSerializer, BookingSerializer
@@ -6,6 +7,8 @@ from .serializers import UserSerializer
 from django.contrib.auth.models import User
 from rest_framework.authentication import TokenAuthentication
 
+def index(request):
+    return render(request, 'index.html', {})
 class MenuItemsView(generics.ListCreateAPIView):
     queryset = Menu.objects.all()  
     serializer_class = MenuSerializer  
